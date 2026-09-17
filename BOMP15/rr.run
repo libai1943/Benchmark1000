@@ -1,0 +1,145 @@
+reset;
+model NLP.mod;
+include ig.INIVAL;
+
+shell ("del " & ("opti_flag.txt"));
+printf "0">>("opti_flag.txt");
+close ("opti_flag.txt");
+
+option solver ipopt;
+solve;
+
+shell ("del " & ("opti_flag.txt"));
+if (match (solve_message, "Optimal") > 0)||(match (solve_message, "Acceptable") > 0) then {
+	printf "1">>("opti_flag.txt");
+} else{
+	printf "0">>("opti_flag.txt");
+}
+close ("opti_flag.txt");
+
+# ============================================================
+# Delete old solution files
+# ============================================================
+shell ("del " & ("x.txt"));
+shell ("del " & ("y.txt"));
+shell ("del " & ("theta.txt"));
+shell ("del " & ("v.txt"));
+shell ("del " & ("a.txt"));
+shell ("del " & ("phi.txt"));
+shell ("del " & ("w.txt"));
+
+shell ("del " & ("r.txt"));
+shell ("del " & ("s.txt"));
+shell ("del " & ("z.txt"));
+
+shell ("del " & ("lam_r.txt"));
+shell ("del " & ("lam_s.txt"));
+shell ("del " & ("lam_z.txt"));
+
+shell ("del " & ("nu.txt"));
+shell ("del " & ("terminal_time.txt"));
+
+
+# ============================================================
+# Main trajectory variables
+# ============================================================
+for {i in {1..nfe}} {
+    printf "%.12g\n", x[i]     >> ("x.txt");
+    printf "%.12g\n", y[i]     >> ("y.txt");
+    printf "%.12g\n", theta[i] >> ("theta.txt");
+    printf "%.12g\n", v[i]     >> ("v.txt");
+    printf "%.12g\n", a[i]     >> ("a.txt");
+    printf "%.12g\n", phi[i]   >> ("phi.txt");
+    printf "%.12g\n", w[i]     >> ("w.txt");
+}
+
+close ("x.txt");
+close ("y.txt");
+close ("theta.txt");
+close ("v.txt");
+close ("a.txt");
+close ("phi.txt");
+close ("w.txt");
+
+
+# ============================================================
+# J2 primal variable r: nfe x ngrids
+# ============================================================
+for {i in {1..nfe}} {
+    for {j in {1..ngrids}} {
+        printf "%.12g ", r[i,j] >> ("r.txt");
+    }
+    printf "\n" >> ("r.txt");
+}
+close ("r.txt");
+
+
+# ============================================================
+# J2 primal variables s and z: nfe x 4
+# ============================================================
+for {i in {1..nfe}} {
+    for {j in {1..4}} {
+        printf "%.12g ", s[i,j] >> ("s.txt");
+    }
+    printf "\n" >> ("s.txt");
+}
+close ("s.txt");
+
+for {i in {1..nfe}} {
+    for {j in {1..4}} {
+        printf "%.12g ", z[i,j] >> ("z.txt");
+    }
+    printf "\n" >> ("z.txt");
+}
+close ("z.txt");
+
+
+# ============================================================
+# MAKKT multipliers
+# ============================================================
+
+# lam_r: nfe x ngrids
+for {i in {1..nfe}} {
+    for {j in {1..ngrids}} {
+        printf "%.12g ", lam_r[i,j] >> ("lam_r.txt");
+    }
+    printf "\n" >> ("lam_r.txt");
+}
+close ("lam_r.txt");
+
+
+# lam_s: nfe x 4
+for {i in {1..nfe}} {
+    for {j in {1..4}} {
+        printf "%.12g ", lam_s[i,j] >> ("lam_s.txt");
+    }
+    printf "\n" >> ("lam_s.txt");
+}
+close ("lam_s.txt");
+
+
+# lam_z: nfe x 4
+for {i in {1..nfe}} {
+    for {j in {1..4}} {
+        printf "%.12g ", lam_z[i,j] >> ("lam_z.txt");
+    }
+    printf "\n" >> ("lam_z.txt");
+}
+close ("lam_z.txt");
+
+
+# nu: nfe x 4
+for {i in {1..nfe}} {
+    for {j in {1..4}} {
+        printf "%.12g ", nu[i,j] >> ("nu.txt");
+    }
+    printf "\n" >> ("nu.txt");
+}
+close ("nu.txt");
+
+
+# ============================================================
+# Terminal time
+# ============================================================
+printf "%.12g\n", tf >> ("terminal_time.txt");
+close ("terminal_time.txt");
