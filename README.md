@@ -1,20 +1,19 @@
 # Benchmark1000
 
-Large-scale numerical benchmark accompanying the survey
+![Publication status](https://img.shields.io/badge/IEEE_ITSM-Accepted-00629B)
+![Implementation](https://img.shields.io/badge/MATLAB-AMPL%20%2B%20IPOPT-555555)
 
-## A Survey of Collision Avoidance Constraint Modeling Strategies in Optimization-based Trajectory Planning for Autonomous Driving
+A reproducible benchmark for collision-avoidance constraint modeling: **1,000 test cases × 8 formulations × 3 initial-guess conditions**.
 
-This repository provides the large-scale benchmark used for the unified numerical evaluation in our survey manuscript:
+[Benchmark overview](#benchmark-overview) · [Run the benchmark](#running-the-benchmark) · [Analyze saved results](#one-click-analysis) · [Companion implementations](https://github.com/libai1943/Eight_Trajectory_Planners)
 
-**"A Survey of Collision Avoidance Constraint Modeling Strategies in Optimization-based Trajectory Planning for Autonomous Driving," IEEE Intelligent Transportation Systems Magazine (ITSM), 2026.**
+## Accompanying paper
 
-The survey focuses on **collision avoidance constraint modeling for optimization-based trajectory planning**. In addition to reviewing and classifying representative modeling strategies, the survey performs a unified numerical comparison to investigate how different collision avoidance formulations affect solution success, computational efficiency, convergence behavior, and solution quality.
+**Bai Li**, *A Survey of Collision Avoidance Constraint Modeling Strategies in Optimization-based Trajectory Planning for Autonomous Driving*.
 
-This repository contains the batch-testing implementation of that numerical study.
+**Accepted by IEEE Intelligent Transportation Systems Magazine on November 8, 2026.** Final publication details and the DOI will be added when assigned.
 
-A companion repository containing the individual implementations of the eight trajectory planners is available at:
-
-https://github.com/libai1943/Eight_Trajectory_Planners
+This repository provides the batch experiments and evaluation workflow used in the survey. For individual planner examples and mathematical implementations, see [Eight_Trajectory_Planners](https://github.com/libai1943/Eight_Trajectory_Planners).
 
 ---
 
@@ -339,7 +338,7 @@ Together, the two repositories provide both **method-level reproducibility** and
 
 **[21]** B. Li and Z. Shao, "A Unified Motion Planning Method for Parking an Autonomous Vehicle in the Presence of Irregularly Placed Obstacles," *Knowledge-Based Systems*, vol. 86, pp. 11-20, 2015.
 
-**[22]** J. Fan, N. Murgovski, and J. Liang, "Efficient Collision Avoidance for Autonomous Vehicles in Polygonal Domains," *IEEE Transactions on Transportation Electrification*, vol. 11, no. 2, pp. 5396-5406, Jun. 2025.
+**[22]** J. Fan, N. Murgovski, and J. Liang, "Efficient Collision Avoidance for Autonomous Vehicles in Polygonal Domains," *IEEE Transactions on Transportation Electrification*, vol. 11, no. 2, pp. 5396-5406, Apr. 2025.
 
 ---
 
