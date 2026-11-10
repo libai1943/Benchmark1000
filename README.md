@@ -5,13 +5,13 @@
 
 A reproducible benchmark for collision-avoidance constraint modeling: **1,000 test cases × 8 formulations × 3 initial-guess conditions**.
 
-[Benchmark overview](#benchmark-overview) · [Run the benchmark](#running-the-benchmark) · [Analyze saved results](#one-click-analysis) · [Companion implementations](https://github.com/libai1943/Eight_Trajectory_Planners)
+[Paper](https://doi.org/10.1109/MITS.2026.3753403) · [Benchmark overview](#benchmark-overview) · [Run the benchmark](#running-the-benchmark) · [Analyze saved results](#one-click-analysis) · [Companion implementations](https://github.com/libai1943/Eight_Trajectory_Planners)
 
 ## Accompanying paper
 
 **Bai Li**, *A Survey of Collision Avoidance Constraint Modeling Strategies in Optimization-based Trajectory Planning for Autonomous Driving*.
 
-**Accepted by IEEE Intelligent Transportation Systems Magazine on November 8, 2026.** Final publication details and the DOI will be added when assigned.
+**Accepted by IEEE Intelligent Transportation Systems Magazine on November 8, 2026.** DOI: [10.1109/MITS.2026.3753403](https://doi.org/10.1109/MITS.2026.3753403). Online publication is pending.
 
 This repository provides the batch experiments and evaluation workflow used in the survey. For individual planner examples and mathematical implementations, see [Eight_Trajectory_Planners](https://github.com/libai1943/Eight_Trajectory_Planners).
 
@@ -373,4 +373,4 @@ For the mathematical taxonomy, detailed derivations, modeling properties, limita
 
 If this benchmark or its source code is useful for your research, please cite the survey and the original publication corresponding to the collision avoidance formulation being used.
 
-The complete bibliographic information of the survey will be updated after final publication.
+**Survey DOI:** [10.1109/MITS.2026.3753403](https://doi.org/10.1109/MITS.2026.3753403). Final volume, issue, and page details will be added when available.
